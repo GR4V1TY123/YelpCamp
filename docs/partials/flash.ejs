@@ -1,0 +1,31 @@
+<% if(success.length){ %>
+    <div class="text-center alert alert-success alert-dismissible fade show" role="alert">
+        <strong><%= success %></strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
+
+<% if(error.length){ %>
+    <div class="text-center alert alert-danger alert-dismissible fade show" role="alert">
+        <strong><%= error %></strong>
+        <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
+    </div>
+<% } %>
+
+<script>
+    const closeAlerts = function() 
+    {
+        const alerts = document.querySelectorAll('.alert-dismissible').forEach(el => el.classList.add('d-none'));
+    }
+ 
+const fadeAlerts = function() 
+{
+     document.querySelectorAll('.alert-dismissible').forEach(el => {
+        el.style.transition = "opacity 0.5s linear 0s";
+        el.style.opacity = 0;
+    });
+    setTimeout("closeAlerts()", 500);
+}
+ 
+setTimeout("fadeAlerts()", 4000);
+</script>
